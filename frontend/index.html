@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI Deepfake Detection</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:linear-gradient(120deg,#020617,#0f172a,#020617);
+color:white;
+}
+
+/* NAVBAR */
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 60px;
+background:#020617;
+}
+
+.logo{
+font-size:22px;
+color:#38bdf8;
+font-weight:600;
+}
+
+.nav-links a{
+color:white;
+text-decoration:none;
+margin-left:30px;
+}
+
+/* HERO */
+
+.hero{
+display:flex;
+align-items:center;
+justify-content:center;
+padding:80px 10%;
+gap:80px;
+flex-wrap:wrap;
+}
+
+.hero-text{
+max-width:500px;
+}
+
+.hero-text h1{
+font-size:48px;
+margin-bottom:20px;
+}
+
+.hero-text p{
+color:#94a3b8;
+margin-bottom:30px;
+}
+
+.detect-btn{
+padding:14px 32px;
+background:#38bdf8;
+border:none;
+border-radius:8px;
+font-size:18px;
+color:white;
+cursor:pointer;
+}
+
+.detect-btn:hover{
+background:#0ea5e9;
+}
+
+/* VIDEO BOX */
+
+.video-box{
+background:#111827;
+padding:20px;
+border-radius:12px;
+width:300px;
+}
+
+video{
+width:100%;
+border-radius:8px;
+}
+
+/* LOADER */
+
+.loader{
+display:none;
+margin-top:20px;
+}
+
+.progress-bg{
+width:100%;
+height:10px;
+background:#333;
+border-radius:10px;
+margin-top:10px;
+}
+
+.progress-bar{
+height:10px;
+width:0%;
+background:#38bdf8;
+border-radius:10px;
+}
+
+.stage{
+margin-top:10px;
+color:#94a3b8;
+font-size:14px;
+}
+
+/* SECTION */
+
+.section{
+padding:80px 10%;
+text-align:center;
+}
+
+.section h2{
+font-size:34px;
+margin-bottom:40px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+}
+
+.card{
+background:#1e293b;
+padding:30px;
+border-radius:12px;
+}
+
+.card h3{
+margin-bottom:10px;
+color:#38bdf8;
+}
+
+.workflow{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:30px;
+margin-top:40px;
+}
+
+.step{
+background:#1e293b;
+padding:25px;
+border-radius:12px;
+}
+
+/* FOOTER */
+
+.footer{
+padding:40px;
+text-align:center;
+background:#020617;
+color:#94a3b8;
+margin-top:80px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+ <div class="particles">
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+</div>
+
+<div class="navbar">
+<div class="logo">Deepfake AI</div>
+
+<div class="nav-links">
+<a href="index.html">Home</a>
+<a href="features.html">Features</a>
+<a href="about.html">About</a>
+</div>
+
+</div>
+<div id="homeSection">
+<div class="hero">
+
+<div class="hero-text">
+
+<h1 class="typing">AI Deepfake Detection </h1>
+
+<p>
+Upload a video and our AI system will analyze frames to detect deepfake manipulation.
+</p>
+
+<label for="video" class="upload-btn">
+📁 Upload Video
+</label>
+
+<input type="file" id="video" accept="video/*" hidden>
+<p id="fileName"></p>
+<br><br>
+
+<button class="detect-btn" onclick="detect()">Detect Deepfake</button>
+
+<div class="loader" id="loader">
+
+<p id="stageText">Uploading video...</p>
+
+<div class="progress-bg">
+<div class="progress-bar" id="progressBar"></div>
+</div>
+
+<p id="percentText">0%</p>
+<p class="ai-status">AI analyzing video...</p>
+</div>
+
+<div id="result" style="display:none;"></div>
+<div class="chart-container">
+
+<canvas id="resultChart"></canvas>
+
+</div>
+</div>
+<div class="video-box">
+
+<video id="preview" controls>
+Your browser does not support video.
+</video>
+
+</div>
+
+</div>
+
+<div class="section">
+
+<h2>How The System Works</h2>
+
+<div class="workflow">
+
+<div class="step">
+<h3>Upload Video</h3>
+<p>User uploads a video.</p>
+</div>
+
+<div class="step">
+<h3>Frame Extraction</h3>
+<p>OpenCV extracts video frames.</p>
+</div>
+
+<div class="step">
+<h3>Face Detection</h3>
+<p>Faces are detected from frames.</p>
+</div>
+
+<div class="step">
+<h3>AI Prediction</h3>
+<p>CNN model classifies video.</p>
+</div>
+
+</div>
+
+</div>
+
+<div class="section">
+
+<h2>Technology Stack</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>TensorFlow</h3>
+<p>Deep learning model.</p>
+</div>
+
+<div class="card">
+<h3>OpenCV</h3>
+<p>Video frame processing.</p>
+</div>
+
+<div class="card">
+<h3>Flask</h3>
+<p>Backend API.</p>
+</div>
+
+<div class="card">
+<h3>Python</h3>
+<p>Model pipeline.</p>
+</div>
+
+</div>
+
+</div>
+
+<div class="footer">
+<p>AI Deepfake Detection System — Final Year Major Project</p>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+
+document.getElementById("video").onchange = function(e){
+
+let file = e.target.files[0]
+
+if(!file) return
+
+let video = document.getElementById("preview")
+
+video.src = URL.createObjectURL(file)
+
+video.load()
+document.getElementById("fileName").innerText = "Selected: " + file.name
+}
+
+/* save video name */
+
+localStorage.setItem("videoSelected","true")
+
+
+function detect(){
+
+let file=document.getElementById("video").files[0]
+
+if(!file){
+alert("Select video")
+return
+}
+
+document.getElementById("loader").style.display="block"
+
+let stages=[
+"Uploading video...",
+"Extracting frames...",
+"Detecting faces...",
+"Running AI model...",
+"Generating result..."
+]
+
+let progress=0
+let stageIndex=0
+
+let interval=setInterval(function(){
+
+progress+=2
+
+document.getElementById("progressBar").style.width=progress+"%"
+document.getElementById("percentText").innerText=progress+"%"
+
+if(progress%20===0 && stageIndex<stages.length){
+document.getElementById("stageText").innerText=stages[stageIndex]
+stageIndex++
+}
+
+if(progress>=100){
+clearInterval(interval)
+}
+
+},120)
+
+let formData=new FormData()
+formData.append("video",file)
+
+fetch("http://127.0.0.1:5000/detect",{
+method:"POST",
+body:formData
+})
+
+checkStatus()
+
+}
+
+
+function checkStatus(){
+
+let interval=setInterval(function(){
+
+fetch("http://127.0.0.1:5000/status")
+.then(res=>res.json())
+.then(data=>{
+
+if(data.processing===false && data.result!==null){
+
+clearInterval(interval)
+document.getElementById("result").style.display="block"
+document.getElementById("result").innerHTML =
+"<h2>"+data.result.result+"</h2>"+
+"<p>Confidence: "+data.result.confidence+"%</p>"+
+"<p>Fake Frames: "+data.result.fake_frames+"</p>"+
+"<p>Real Frames: "+data.result.real_frames+"</p>";
+let ctx = document.getElementById("resultChart").getContext("2d");
+
+new Chart(ctx, {
+type: "bar",
+data: {
+labels: ["Fake Frames", "Real Frames"],
+datasets: [{
+label: "Frame Analysis",
+data: [data.result.fake_frames, data.result.real_frames],
+backgroundColor: [
+"rgba(255, 99, 132, 0.7)",
+"rgba(54, 162, 235, 0.7)"
+],
+borderRadius: 8
+}]
+},
+options: {
+responsive: true,
+plugins: {
+legend: {
+display: false
+}
+},
+scales: {
+y: {
+beginAtZero: true
+}
+}
+}
+});
+}
+
+})
+
+},2000)
+
+}
+</script>
+<script>
+window.onload = function(){
+
+let videoSelected = localStorage.getItem("videoSelected")
+
+if(videoSelected){
+
+console.log("Video was selected before")
+
+}
+
+}
+function showPage(page){
+
+if(page === "home"){
+window.location.href = "index.html"
+}
+
+if(page === "features"){
+window.location.href = "features.html"
+}
+
+if(page === "about"){
+window.location.href = "about.html"
+}
+
+}
+
+</script>
+</body>
+</html>

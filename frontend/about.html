@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>About Project</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+body{
+background:linear-gradient(120deg,#020617,#0f172a,#020617);
+color:white;
+font-family:Poppins;
+}
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:18px 60px;
+background:#020617;
+}
+
+.navbar a{
+color:white;
+text-decoration:none;
+margin-left:30px;
+}
+
+.section{
+padding:110px 15%;
+text-align:center;
+line-height:1.8;
+}
+
+.section h2{
+margin-bottom:30px;
+font-size:32px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+margin-top:40px;
+}
+
+.card{
+background:#1e293b;
+padding:25px;
+border-radius:12px;
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+box-shadow:0 0 20px rgba(56,189,248,0.3);
+}
+
+.card h3{
+color:#38bdf8;
+margin-bottom:10px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="particles">
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+</div>
+
+<div class="navbar">
+<div class="logo">Deepfake AI</div>
+
+<div class="nav-links">
+<a href="index.html">Home</a>
+<a href="features.html">Features</a>
+<a href="about.html">About</a>
+</div>
+
+</div>
+
+
+<!-- ABOUT PROJECT -->
+
+<div class="section">
+
+<h2>About This Project</h2>
+
+<p>
+
+The AI Deepfake Detection System is developed to identify manipulated or
+synthetically generated videos using modern deep learning techniques.
+With the rapid advancement of artificial intelligence, deepfake technology
+has become increasingly sophisticated, making it difficult to distinguish
+between real and fake media content.
+
+This project focuses on building an intelligent system capable of analyzing
+video frames and detecting subtle visual inconsistencies that are commonly
+introduced during deepfake generation. By combining computer vision and
+deep learning models, the system provides an automated approach to detect
+video manipulation and classify the content as either real or fake.
+
+</p>
+
+</div>
+
+
+<!-- PROBLEM STATEMENT -->
+
+<div class="section">
+
+<h2>Problem Statement</h2>
+
+<p>
+
+Deepfake videos are becoming increasingly common due to the advancement of
+AI-based generative models. These videos can be used to manipulate public
+opinion, spread misinformation, or create fake identities. Detecting such
+videos manually is extremely difficult because deepfake algorithms are
+capable of generating highly realistic facial expressions and movements.
+
+Therefore, there is a need for an automated system that can analyze digital
+media and identify signs of manipulation using artificial intelligence.
+
+</p>
+
+</div>
+
+
+<!-- PROJECT OBJECTIVES -->
+
+<div class="section">
+
+<h2>Project Objectives</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Deepfake Identification</h3>
+<p>Detect manipulated videos using AI based analysis.</p>
+</div>
+
+<div class="card">
+<h3>Frame Level Analysis</h3>
+<p>Extract frames from videos and analyze facial patterns.</p>
+</div>
+
+<div class="card">
+<h3>AI Based Classification</h3>
+<p>Classify videos as REAL or DEEPFAKE using CNN models.</p>
+</div>
+
+<div class="card">
+<h3>User Friendly System</h3>
+<p>Provide a simple interface for users to upload videos and check authenticity.</p>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- SYSTEM WORKFLOW -->
+
+<div class="section">
+
+<h2>System Workflow</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Video Upload</h3>
+<p>User uploads a video through the web interface.</p>
+</div>
+
+<div class="card">
+<h3>Frame Extraction</h3>
+<p>OpenCV extracts frames from the uploaded video.</p>
+</div>
+
+<div class="card">
+<h3>Face Detection</h3>
+<p>Faces are detected from frames for detailed analysis.</p>
+</div>
+
+<div class="card">
+<h3>Deep Learning Model</h3>
+<p>CNN model analyzes facial features for manipulation.</p>
+</div>
+
+<div class="card">
+<h3>Prediction Result</h3>
+<p>The system predicts whether the video is REAL or FAKE.</p>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- IMPORTANCE -->
+
+<div class="section">
+
+<h2>Importance of Deepfake Detection</h2>
+
+<p>
+
+Deepfake technology has rapidly evolved and can generate extremely
+realistic manipulated videos. Such content can be used for spreading
+misinformation, political propaganda, identity fraud, and digital
+manipulation. Developing reliable deepfake detection systems is essential
+for maintaining digital trust and verifying the authenticity of media
+content shared across the internet.
+
+</p>
+
+</div>
+
+
+<!-- REAL WORLD APPLICATIONS -->
+
+<div class="section">
+
+<h2>Real World Applications</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Fake News Detection</h3>
+<p>Helps identify manipulated videos used to spread misinformation.</p>
+</div>
+
+<div class="card">
+<h3>Digital Forensics</h3>
+<p>Supports investigators in verifying digital media evidence.</p>
+</div>
+
+<div class="card">
+<h3>Media Verification</h3>
+<p>News organizations can verify authenticity of video content.</p>
+</div>
+
+<div class="card">
+<h3>Online Safety</h3>
+<p>Protects users from identity fraud and malicious deepfake attacks.</p>
+</div>
+
+</div>
+
+</div>
+
+
+<!-- LIMITATIONS -->
+
+<div class="section">
+
+<h2>Limitations</h2>
+
+<p>
+
+Although the system is capable of detecting many manipulated videos,
+its performance depends on the quality of the dataset and the resolution
+of the input video. Highly advanced deepfake generation techniques may
+require more sophisticated detection models and larger training datasets.
+Future research can focus on improving model accuracy and robustness.
+
+</p>
+
+</div>
+
+
+<!-- FUTURE SCOPE -->
+
+<div class="section">
+
+<h2>Future Scope</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Real-Time Detection</h3>
+<p>Detect deepfake videos during live streaming.</p>
+</div>
+
+<div class="card">
+<h3>Mobile Application</h3>
+<p>Allow users to verify videos directly from smartphones.</p>
+</div>
+
+<div class="card">
+<h3>Social Media Monitoring</h3>
+<p>Automatically detect manipulated content on social platforms.</p>
+</div>
+
+<div class="card">
+<h3>Advanced AI Models</h3>
+<p>Improve detection accuracy using transformer-based models.</p>
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>
+```
