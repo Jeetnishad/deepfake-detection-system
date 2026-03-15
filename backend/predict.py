@@ -1,17 +1,19 @@
 import numpy as np
-import tensorflow as tf
 
 from utils.video_processor import extract_frames
 from utils.face_extractor import extract_faces
 
-# model initially None
-model: tf.keras.Model | None = None
+model = None
+tf = None
 
 
 def load_model():
-    global model
+    global model, tf
 
     if model is None:
+        import tensorflow as tf_local
+        tf = tf_local
+
         print("Loading deepfake model...")
         model = tf.keras.models.load_model(
             "deepfake_model.h5",
@@ -24,7 +26,6 @@ def predict_video(video_path):
 
     global model
 
-    # ensure model is loaded
     if model is None:
         load_model()
 
@@ -35,7 +36,6 @@ def predict_video(video_path):
     face_found = False
     all_faces = []
 
-    # collect faces
     for frame in frames:
 
         faces = extract_faces(frame)
@@ -53,10 +53,8 @@ def predict_video(video_path):
             "real_frames": 0
         }
 
-    # convert to numpy array
     all_faces = np.array(all_faces)
 
-    # prediction
     predictions = model.predict(all_faces, batch_size=32, verbose=0)
 
     for pred in predictions:
