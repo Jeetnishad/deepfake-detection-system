@@ -6,7 +6,10 @@ from utils.face_extractor import extract_faces
 from model.deepfake_model import build_model
 
 # load trained model
-model = tf.keras.models.load_model("deepfake_model.h5")
+model = tf.keras.models.load_model(
+    "deepfake_model.h5",
+    compile=False
+)
 
 
 def predict_video(video_path):
